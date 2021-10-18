@@ -1,0 +1,11 @@
+.tituloenelmedio{
+    display: flex;
+    align-items: center;
+    height: 95vh;
+}
+
+h1{
+    text-align: center;
+    margin: auto;
+    font-family: 'IM Fell English SC', serif;
+}
