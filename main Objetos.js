@@ -62,15 +62,14 @@ switch(consulta){
             default:
                 alert("No es un número válido. Indique el número de la película de la cual desea saber.")
         }
-
         inicio();
         break;
     case 3:
         alert("El total de películas es de: " + (parseInt(dvd1.stock) + 20  + parseInt(dvd3.stock) + parseInt(dvd4.stock) + parseInt(dvd5.stock) + parseInt(dvd6.stock)));
         inicio();
         break;
-
-}}
+    }
+}
 inicio();
 
 
