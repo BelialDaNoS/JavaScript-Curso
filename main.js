@@ -66,7 +66,11 @@ function inicio(){
             inicio();
             break;
         case 3:
-            alert("El total de películas es de: " + (parseInt(dvd1.stock) + 20  + parseInt(dvd3.stock) + parseInt(dvd4.stock) + parseInt(dvd5.stock) + parseInt(dvd6.stock)));
+            let total= 0;
+            for(i=0;i<cantpelis;i++){
+                total += peliculas[i].stock
+            }
+            alert("El total de películas es de: " + total );
             inicio();
             break;
         }
