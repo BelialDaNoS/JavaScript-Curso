@@ -15,11 +15,14 @@ const dvd3 = new Dvd("Muchahontas", 20, "lorem ipsum", "Nativo americano / ingl�
 const dvd4 = new Dvd("Estrella guerras", 666, "lorem ipsum", "muchos", "no");
 const dvd5 = new Dvd("Matrixulado", 01, "lorem ipsum", "011010010010", "depende");
 const dvd6 = new Dvd("Your ass is park", 1, "lorem ipsum", "*Sonidos de dinosaurios*", "A A AAAAA no dijiste la palabra mágica");
+const dvd7 = new Dvd();
+
 
 const peliculas = [dvd1,dvd2,dvd3,dvd4,dvd5,dvd6];
 
 let cantpelis = peliculas.length;
 
+let titulo = "dvd" + (cantpelis + 1);
 
 function listapelis(){
     const lista = []
@@ -30,6 +33,15 @@ function listapelis(){
 }
 
 
+
+function agregpelis(){
+    let name = prompt("Indique el título de la película:");
+    let cant = prompt("Indique la cantidad de Dvd's que ingresa:");
+    let sino = prompt("Indique la sinposis de la película:");
+    let idi = prompt("Indique el idioma de la película:");
+    let subs = prompt("Indique si tiene subtítulos y en que idioma están:");
+    return(name, cant, sino, idi, subs);
+}
 
 
 
@@ -82,7 +94,12 @@ function inicio(){
             alert("El total de películas es de: " + (parseInt(dvd1.stock) + 20  + parseInt(dvd3.stock) + parseInt(dvd4.stock) + parseInt(dvd5.stock) + parseInt(dvd6.stock)));
             inicio();
             break;
+        case 4:
+            agregpelis();
+            peliculas.push();
+            inicio();
+            break;
         }
     }
-
+    
     inicio();
