@@ -47,6 +47,18 @@ function infopelis(){
 
 
 
+// function agregarpeli(){
+//     let titulo = "dvd" + (cantpelis+1);
+//     let name = prompt("Indique el Nombre de la película a agregar:");
+//     let stocknuevo= prompt("Indique cuánto stock de ésta película se agrega:");
+//     let sino = prompt("Indique la sinopsis:");
+//     let idi = prompt("En que idioma está?");
+//     let subs = prompt("Tiene Subtitulos? En que idioma?");
+//     peliculas.push(titulo);
+//     globalThis.titulo = new Dvd(name, stocknuevo, sino, idi, subs);
+// }
+
+
 
 
 function inicio(){
@@ -70,7 +82,7 @@ function inicio(){
             for(i=0;i<cantpelis;i++){
                 total += peliculas[i].stock
             }
-            alert("El total de películas es de: " + total );
+            alert("El total de películas en stock es de: " + total );
             inicio();
             break;
         }
