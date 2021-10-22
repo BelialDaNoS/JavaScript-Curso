@@ -1,18 +1,93 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlockBuster (?</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stockero</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/pricing/">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div style="display: flex; align-items: center; height: 95vh;">
-        <h1 style="text-align: center; margin: auto; font-family: 'IM Fell English SC', serif;">BloqueBuster Inventario</h1>
+    <link href="index.css" rel="stylesheet">
+  </head>
+
+
+
+
+  <body>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check" viewBox="0 0 16 16">
+    <title>Inventario</title>
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+</svg>
+
+<div class="container py-3">
+  <header>
+    <div class="d-flex flex-column align-items-center pb-3 mb-1 border-bottom">
+      <img src="./recursos/icon_peli.jpg" alt="Ícono de Película">
+      <h1 class="fs-1 ms-3 BloqueBuster text-center">BloqueBuster</h1>
+
+      <!-- <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 text-dark text-decoration-none" href="#">Features</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="#">Enterprise</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="#">Support</a>
+        <a class="py-2 text-dark text-decoration-none" href="#">Pricing</a>
+      </nav> -->
     </div>
-    <script src="main.js"></script>
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal">Stockeo</h1>
+      <p class="fs-5 text-muted">Por ahora solamente vas a poder ver que hay en stock, ver los detalles y si te portas bien te dejo ver la cantidad total de películas.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Stock</h4>
+          </div>
+          <div class="card-body" style="height: 150px;">
+            <h1 class="card-title ">Ver Stock Actual</h1>
+          </div>
+          <button type="button" class="w-100 btn btn-lg btn-outline-primary">Apretá acá</button>
+        </div>
+      </div>
+
+
+
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Detalles :o</h4>
+          </div>
+          <div class="card-body" style="height: 150px;">
+            <h1 class="card-title pricing-card-title">Mas info. de las películas</small></h1>
+          </div>
+          <button type="button" class="w-100 btn btn-lg btn-primary">Apretá acá</button>
+        </div>
+      </div>
+
+
+
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-white bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Total</h4>
+          </div>
+          <div class="card-body" style="height: 150px;">
+            <h1 class="card-title pricing-card-title">Total en Stock</small></h1>
+          </div>
+          <button type="button" class="w-100 btn btn-lg btn-primary">Apretá acá</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="./main.js"></script>
 </body>
-</html> 
+</html>
