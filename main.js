@@ -47,17 +47,6 @@ function infopelis(){
 
 
 
-// function agregarpeli(){
-//     let titulo = "dvd" + (cantpelis+1);
-//     let name = prompt("Indique el Nombre de la película a agregar:");
-//     let stocknuevo= prompt("Indique cuánto stock de ésta película se agrega:");
-//     let sino = prompt("Indique la sinopsis:");
-//     let idi = prompt("En que idioma está?");
-//     let subs = prompt("Tiene Subtitulos? En que idioma?");
-//     peliculas.push(titulo);
-//     globalThis.titulo = new Dvd(name, stocknuevo, sino, idi, subs);
-// }
-
 
 
 
@@ -87,3 +76,12 @@ function inicio(){
             break;
         }
     }
+
+
+// setTimeout(inicio,5000)
+
+function nombrepagina(){
+    alert("Entiendo que el nombre de la página pueda ser medio repetitivo o conocido, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
+    let nuevonombre = prompt("Así que te crees muy inteligente eh? Crees que podes poner un mejor nombre que el que le puse yo? \n A ver, que nombre se te ocurre??")
+    
+}
