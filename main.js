@@ -87,5 +87,3 @@ function inicio(){
             break;
         }
     }
-
-    inicio();
