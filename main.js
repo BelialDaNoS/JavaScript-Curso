@@ -49,17 +49,35 @@ function infopelis(){
 }}
 
 
+function nombrepagina(){
+    let nombrepagina = document.getElementById("nombrepagina");
+    alert("Entiendo que el nombre de la página pueda ser medio repetitivo o muy básico, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
+    let nuevonombre = prompt("Así que te crees muy inteligente eh? Crees que podes poner un mejor nombre que el que le puse yo? \n\nA ver, que nombre se te ocurre??");
+    nombrepagina.innerHTML = nuevonombre;
+    setTimeout(function(){alert("Me gustaba más mi nombre... pero al parecer " + nuevonombre + " no queda tan mal.")}, 2000);
+}
+
+
+// Función a agregar cuando aprenda a controlar la BD
+
+// function agregpelis(){
+//     let name = prompt("Indique el título de la película:");
+//     let cant = prompt("Indique la cantidad de Dvd's que ingresa:");
+//     let sino = prompt("Indique la sinposis de la película:");
+//     let idi = prompt("Indique el idioma de la película:");
+//     let subs = prompt("Indique si tiene subtítulos y en que idioma están:");
+//     return(name, cant, sino, idi, subs);
+// }
+
 
 
 
 
 function inicio(){
-    let consulta = parseInt(prompt("¿Que desea hacer? \n(1) Ver películas en stock \n(2) Ver información detallada de alguna película \n(3) Cantidad total de películas \n(4) Agregar una película al inventario"))
-    if(isNaN(consulta) || consulta < 1 || consulta > 4){
+    let consulta = parseInt(prompt("¿Que desea hacer? \n(1) Ver películas en stock \n(2) Ver información detallada de alguna película \n(3) Cantidad total de películas \n(4) Agregar una película al inventario \n(5) Cambiar el nombre de la página"))
+    if(isNaN(consulta) || consulta < 1 || consulta > 5){
         alert("Ahora aprendí a recargar la página, así que te voy a recargar la página y cuando vuelva mas te vale que escribas un número DE LAS OPCIONES sino se te arma la podrida");
-    location.reload();
-    }
-
+    location.reload();}
     switch(consulta){
         case 1:
             listapelis();
@@ -78,18 +96,18 @@ function inicio(){
             inicio();
             break;
         case 4:
-            agregpelis();
-            peliculas.push();
+            alert("Actualmente ésta opción se encuentra deshabilitada por desconocimiento del creador de éste script.")
             inicio();
+            break;
+        case 5:
+            nombrepagina();
+            setTimeout(inicio,4000);
             break;
         }
     }
 
 
-// setTimeout(inicio,5000)
+setTimeout(inicio,1000)
 
-function nombrepagina(){
-    alert("Entiendo que el nombre de la página pueda ser medio repetitivo o conocido, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
-    let nuevonombre = prompt("Así que te crees muy inteligente eh? Crees que podes poner un mejor nombre que el que le puse yo? \n A ver, que nombre se te ocurre??")
-    
-}
+
+
