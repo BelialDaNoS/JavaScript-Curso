@@ -57,6 +57,23 @@ function nombrepagina(){
     setTimeout(function(){alert("Me gustaba más mi nombre... pero al parecer " + nuevonombre + " no queda tan mal.")}, 2000);
 }
 
+let total= 0;
+for(i=0;i<cantpelis;i++){
+total += peliculas[i].stock}
+
+
+
+
+let stockbtn = document.getElementById("stockbtn");
+stockbtn.onclick = () => {listapelis()};
+
+let infobtn = document.getElementById("infobtn");
+infobtn.onclick = () => {infopelis()};
+
+let totalbn = document.getElementById("totalbtn");
+totalbtn.onclick = () => {alert('El total de películas es de --> ' + total)};
+
+
 
 // Función a agregar cuando aprenda a controlar la BD
 
@@ -68,46 +85,4 @@ function nombrepagina(){
 //     let subs = prompt("Indique si tiene subtítulos y en que idioma están:");
 //     return(name, cant, sino, idi, subs);
 // }
-
-
-
-
-
-function inicio(){
-    let consulta = parseInt(prompt("¿Que desea hacer? \n(1) Ver películas en stock \n(2) Ver información detallada de alguna película \n(3) Cantidad total de películas \n(4) Agregar una película al inventario \n(5) Cambiar el nombre de la página"))
-    if(isNaN(consulta) || consulta < 1 || consulta > 5){
-        alert("Ahora aprendí a recargar la página, así que te voy a recargar la página y cuando vuelva mas te vale que escribas un número DE LAS OPCIONES sino se te arma la podrida");
-    location.reload();}
-    switch(consulta){
-        case 1:
-            listapelis();
-            inicio();
-            break;
-        case 2:
-            infopelis();
-            inicio();
-            break;
-        case 3:
-            let total= 0;
-            for(i=0;i<cantpelis;i++){
-                total += peliculas[i].stock
-            }
-            alert("El total de películas en stock es de: " + total );
-            inicio();
-            break;
-        case 4:
-            alert("Actualmente ésta opción se encuentra deshabilitada por desconocimiento del creador de éste script.")
-            inicio();
-            break;
-        case 5:
-            nombrepagina();
-            setTimeout(inicio,4000);
-            break;
-        }
-    }
-
-
-setTimeout(inicio,1000)
-
-
 
