@@ -38,12 +38,11 @@ function listapelis(){
 function infopelis(){
     const lista = [];
     for(i=0;i<cantpelis;i++){
-        lista.push("("+(i+1)+") " +peliculas[i].nombre);
+        lista.push("("+(i+1)+") " + peliculas[i].nombre);
     }
     let info = prompt("Sobre quepelícula le gustaría saber más?\n"+ lista.join("\n"));
     if(info<1 || info>cantpelis || isNaN(info)){
         alert("ERROR! Indique correctamente el número de la pelícual sobre la cual desea saber");
-        infopelis();
     }else{
     alert("Nombre: " + peliculas[info-1].nombre + "\n" + "Cantidad en Stock: " + peliculas[info-1].stock + "\n" + "Sinopsis: " + peliculas[info-1].sinopsis + "\n" + "Idioma: " + peliculas[info-1].idioma + "\n" + "Subtítulos: " + peliculas[info-1].subtitulos)
 }}
@@ -53,8 +52,8 @@ function nombrepagina(){
     let nombrepagina = document.getElementById("nombrepagina");
     alert("Entiendo que el nombre de la página pueda ser medio repetitivo o muy básico, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
     let nuevonombre = prompt("Así que te crees muy inteligente eh? Crees que podes poner un mejor nombre que el que le puse yo? \n\nA ver, que nombre se te ocurre??");
-    nombrepagina.innerHTML = nuevonombre;
-    setTimeout(function(){alert("Me gustaba más mi nombre... pero al parecer " + nuevonombre + " no queda tan mal.")}, 2000);
+    nombrepagina.innerHTML = nuevonombre.toString();
+    setTimeout(function(){alert("Me gustaba más mi nombre... pero al parecer '" + nuevonombre + "' no queda tan mal.")}, 2000);
 }
 
 let total= 0;
@@ -73,6 +72,8 @@ infobtn.onclick = () => {infopelis()};
 let totalbn = document.getElementById("totalbtn");
 totalbtn.onclick = () => {alert('El total de películas es de --> ' + total)};
 
+let cambiarnombrepagina = document.getElementById("cambiarnombrepagina");
+cambiarnombrepagina.onclick = () => nombrepagina();
 
 
 // Función a agregar cuando aprenda a controlar la BD
