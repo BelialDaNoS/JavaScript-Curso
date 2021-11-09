@@ -61,29 +61,12 @@ for(i=0;i<cantpelis;i++){
 total += peliculas[i].stock}
 
 
-
-
-let stockbtn = document.getElementById("stockbtn");
-stockbtn.onclick = () => {listapelis()};
-
-let infobtn = document.getElementById("infobtn");
-infobtn.onclick = () => {infopelis()};
-
-let totalbn = document.getElementById("totalbtn");
-totalbtn.onclick = () => {alert('El total de películas es de --> ' + total)};
-
-let cambiarnombrepagina = document.getElementById("cambiarnombrepagina");
-cambiarnombrepagina.onclick = () => nombrepagina();
-
-
-// Función a agregar cuando aprenda a controlar la BD
-
-// function agregpelis(){
-//     let name = prompt("Indique el título de la película:");
-//     let cant = prompt("Indique la cantidad de Dvd's que ingresa:");
-//     let sino = prompt("Indique la sinposis de la película:");
-//     let idi = prompt("Indique el idioma de la película:");
-//     let subs = prompt("Indique si tiene subtítulos y en que idioma están:");
-//     return(name, cant, sino, idi, subs);
-// }
+$(document).ready(() => {
+    $("#cambiarnombrepagina").on('click',nombrepagina);
+    $("#totalbtn").on('click',()=> {
+        alert("El total de películas es de -->"+ total)
+    });
+    $("#infobtn").on('click',infopelis);
+    $("#stockbtn").on('click',listapelis);
+ })
 
