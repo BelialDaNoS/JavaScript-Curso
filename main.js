@@ -66,7 +66,7 @@ $(document).ready(() => {
     $("#totalbtn").on('click',()=> {
         alert("El total de películas es de -->"+ total)
     });
-    $("#infobtn").on('click',infopelis);
-    $("#stockbtn").on('click',listapelis);
+    $("#infobtn").click(infopelis);
+    $("#stockbtn").click(listapelis);
  })
 
