@@ -48,13 +48,40 @@ function infopelis(){
 }}
 
 
+
+
 function nombrepagina(){
-    let nombrepagina = document.getElementById("nombrepagina");
-    alert("Entiendo que el nombre de la página pueda ser medio repetitivo o muy básico, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
-    let nuevonombre = prompt("Así que te crees muy inteligente eh? Crees que podes poner un mejor nombre que el que le puse yo? \n\nA ver, que nombre se te ocurre??");
-    nombrepagina.innerHTML = nuevonombre.toString();
-    setTimeout(function(){alert("Me gustaba más mi nombre... pero al parecer '" + nuevonombre + "' no queda tan mal.")}, 2000);
+    $(document).ready(() => {
+        alert("Entiendo que el nombre de la página pueda ser medio repetitivo o muy básico, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
+        $("#nombrepagina").fadeOut(600)
+        let nuevonombre = prompt("Así que te crees muy inteligente eh? Crees que podes poner un mejor nombre que el que le puse yo? \n\nA ver, que nombre se te ocurre??");
+        if (nuevonombre == ""){
+            alert("Bueno, tampoco es que mi nombre sea tan malo :c \n Te dejo el que mio");
+            $("#nombrepagina").fadeIn(800)
+            $("#nombrepagina").text("BloqueBuster");
+            return;
+        }else{
+            $("#nombrepagina").fadeIn(800)
+            $("#nombrepagina").text(nuevonombre).toString();
+        }
+        
+    })
 }
+
+
+
+
+//  function nombrepagina(){
+//     let nombrepagina = document.getElementById("nombrepagina");
+//     alert("Entiendo que el nombre de la página pueda ser medio repetitivo o muy básico, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
+//     let nuevonombre = prompt("Así que te crees muy inteligente eh? Crees que podes poner un mejor nombre que el que le puse yo? \n\nA ver, que nombre se te ocurre??");
+//     nombrepagina.innerHTML = nuevonombre.toString();
+//     setTimeout(function(){alert("Me gustaba más mi nombre... pero al parecer '" + nuevonombre + "' no queda tan mal.")}, 2000);
+// }
+
+
+
+
 
 let total= 0;
 for(i=0;i<cantpelis;i++){
@@ -69,4 +96,8 @@ $(document).ready(() => {
     $("#infobtn").click(infopelis);
     $("#stockbtn").click(listapelis);
  })
+
+
+
+
 
