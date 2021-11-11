@@ -63,21 +63,12 @@ function nombrepagina(){
         }else{
             $("#nombrepagina").fadeIn(800)
             $("#nombrepagina").text(nuevonombre).toString();
+            setTimeout(function(){alert("Me gustaba más mi nombre... pero al parecer '" + nuevonombre.toUpperCase() + "' no queda tan mal.")}, 2000);
+            
         }
         
     })
 }
-
-
-
-
-//  function nombrepagina(){
-//     let nombrepagina = document.getElementById("nombrepagina");
-//     alert("Entiendo que el nombre de la página pueda ser medio repetitivo o muy básico, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
-//     let nuevonombre = prompt("Así que te crees muy inteligente eh? Crees que podes poner un mejor nombre que el que le puse yo? \n\nA ver, que nombre se te ocurre??");
-//     nombrepagina.innerHTML = nuevonombre.toString();
-//     setTimeout(function(){alert("Me gustaba más mi nombre... pero al parecer '" + nuevonombre + "' no queda tan mal.")}, 2000);
-// }
 
 
 
@@ -91,7 +82,13 @@ total += peliculas[i].stock}
 $(document).ready(() => {
     $("#cambiarnombrepagina").on('click',nombrepagina);
     $("#totalbtn").on('click',()=> {
-        alert("El total de películas es de -->"+ total)
+        $("#totalbtn").hide();
+        $("#totalstock").hide();
+        $("#totalstock-padre").append(`<h2 id="totalstock--"> XD</h2>`);
+        $("#totalstock--").hide();
+        $("#totalstock--").text(`El total de películas es de: ${total}`).fadeIn(1200);
+        
+        // El total de películas es de: ${total} 
     });
     $("#infobtn").click(infopelis);
     $("#stockbtn").click(listapelis);
