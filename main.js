@@ -36,6 +36,10 @@ function listapelis(){
 
 
 function infopelis(){
+    $(document).ready(() => {
+        $("#iconopelis").slideUp(2000)
+        .slideDown(2000);
+    })
     const lista = [];
     for(i=0;i<cantpelis;i++){
         lista.push("("+(i+1)+") " + peliculas[i].nombre);
@@ -52,6 +56,8 @@ function infopelis(){
 
 function nombrepagina(){
     $(document).ready(() => {
+        $("#iconopelis").slideUp(2000)
+        .slideDown(2000);
         alert("Entiendo que el nombre de la página pueda ser medio repetitivo o muy básico, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
         $("#nombrepagina").fadeOut(600)
         let nuevonombre = prompt("Así que te crees muy inteligente eh? Crees que podes poner un mejor nombre que el que le puse yo? \n\nA ver, que nombre se te ocurre??");
@@ -82,13 +88,21 @@ total += peliculas[i].stock}
 $(document).ready(() => {
     $("#cambiarnombrepagina").on('click',nombrepagina);
     $("#totalbtn").on('click',()=> {
-        $("#totalbtn").hide();
-        $("#totalstock").hide();
-        $("#totalstock-padre").append(`<h2 id="totalstock--"> XD</h2>`);
+        $("#iconopelis").slideUp(2000)
+        .delay(2000)
+        .slideDown(2000);
+        $("#totalbtn").hide()
+        .delay(5500)
+        .fadeIn(1500);
+        $("#totalstock").fadeOut(200)
+        .delay(5500)
+        .fadeIn(1500);
+        $("#totalstock-padre").append(`<h2 id="totalstock--"></h2>`);
         $("#totalstock--").hide();
-        $("#totalstock--").text(`El total de películas es de: ${total}`).fadeIn(1200);
-        
-        // El total de películas es de: ${total} 
+        $("#totalstock--").text(`El total de películas es de: ${total}`).fadeIn(1400)
+        .delay(4000)
+        .fadeOut();
+
     });
     $("#infobtn").click(infopelis);
     $("#stockbtn").click(listapelis);
