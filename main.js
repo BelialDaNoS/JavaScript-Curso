@@ -106,6 +106,15 @@ $(document).ready(() => {
     });
     $("#infobtn").click(infopelis);
     $("#stockbtn").click(listapelis);
+
+
+    $("#randomfoto").click(()=>{
+        let randomizameesta =  prompt("Inserte la categoría de foto que desea ver. Si no le importa la categoría no pongas nada y mandale Aceptar(En inglés hay mas chance de que aparezca.)")
+        $("body").append(`https://source.unsplash.com/random/400x200/?${randomizameesta}`
+        );
+        
+    });
+    
  })
 
 
