@@ -114,13 +114,13 @@ $(document).ready(() => {
 
     $("#pokeboton").click(()=>{
             let caja=(document.getElementById('caja').value).toLowerCase();
-            let img=document.getElementById('img')
-            let name=document.getElementById('name')
-            let id=document.getElementById('id')
-            let types=document.getElementById('types')
-            let xhttp=new XMLHttpRequest()
-            xhttp.open("GET",`https://pokeapi.co/api/v2/pokemon/${caja}`)
-            xhttp.send()
+            let img=document.getElementById('img');
+            let name=document.getElementById('name');
+            let id=document.getElementById('id');
+            let peso=document.getElementById('peso');
+            let xhttp=new XMLHttpRequest();
+            xhttp.open("GET",`https://pokeapi.co/api/v2/pokemon/${caja}`);
+            xhttp.send();
 
             xhttp.onreadystatechange=function () {
                 if(this.readyState==4 && this.status==200)
@@ -130,7 +130,7 @@ $(document).ready(() => {
                 img.setAttribute("src",datoPokemon.sprites.front_default);
                 name.textContent=datoPokemon.name;
                 id.textContent=datoPokemon.id;
-                types.textContent=datoPokemon.types;
+                peso.textContent=datoPokemon.weight+" gramitos";
                 }
             }
     })
