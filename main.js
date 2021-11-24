@@ -113,20 +113,25 @@ $(document).ready(() => {
 
 
     $("#pokeboton").click(()=>{
-        let pokenombre = prompt();
+            let caja=(document.getElementById('caja').value).toLowerCase();
+            let img=document.getElementById('img')
+            let name=document.getElementById('name')
+            let id=document.getElementById('id')
+            let types=document.getElementById('types')
+            let xhttp=new XMLHttpRequest()
+            xhttp.open("GET",`https://pokeapi.co/api/v2/pokemon/${caja}`)
+            xhttp.send()
 
-
+            xhttp.onreadystatechange=function () {
+                if(this.readyState==4 && this.status==200)
+                {
+                let datoPokemon=JSON.parse(this.responseText);
+                console.log(datoPokemon);
+                img.setAttribute("src",datoPokemon.sprites.front_default);
+                name.textContent=datoPokemon.name;
+                id.textContent=datoPokemon.id;
+                types.textContent=datoPokemon.types;
+                }
+            }
     })
-    
-
-
-
-
-
  })
-
-
-
-
-
- 
