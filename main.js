@@ -1,34 +1,48 @@
 
-class Dvd{
-    constructor(nombre, stock, sinopsis, idioma, subtitulos) {
+class pokemons{
+    constructor(nombre, stock, tipo, ataqueespecial, peso) {
         this.nombre = nombre
         this.stock = stock;
-        this.sinopsis = sinopsis;
-        this.idioma = idioma;
-        this.subtitulos = subtitulos;
+        this.tipo = tipo;
+        this.ataqueespecial = ataqueespecial;
+        this.peso = peso;
 }}
 
 
-const dvd1 = new Dvd("πratas del caribe", 500, "lorem ipsum", "caribeño", "no");
-const dvd2 = new Dvd("El señor de los novillos",20, "lorem ipsum", "Nativo americano / inglés", "si");
-// "3 dvd's para los de Palermo, 7 para los wachiturros, nueve para los del bajo flores, uno para Alberto"
-const dvd3 = new Dvd("Muchahontas", 20, "lorem ipsum", "Nativo americano / inglés", "si");
-const dvd4 = new Dvd("Estrella guerras", 666, "lorem ipsum", "muchos", "no");
-const dvd5 = new Dvd("Matrixulado", 01, "lorem ipsum", "011010010010", "depende");
-const dvd6 = new Dvd("Your ass is park", 1, "lorem ipsum", "*Sonidos de dinosaurios*", "A A AAAAA no dijiste la palabra mágica");
-const dvd7 = new Dvd();
+const cargarSonido = function (fuente) {
+    const sonido = document.createElement("audio");
+    sonido.src = fuente;
+    sonido.setAttribute("preload", "auto");
+    sonido.setAttribute("controls", "none");
+    sonido.style.display = "none";
+    document.body.appendChild(sonido);
+    return sonido;
+};
 
 
-const peliculas = [dvd1,dvd2,dvd3,dvd4,dvd5,dvd6];
+const pokesongintro = cargarSonido("./recursos/pokesong intro.webm"); //<-- Acá va la canción del intro
 
-let cantpelis = peliculas.length;
 
-let titulo = "dvd" + (cantpelis + 1);
+const pokemons1 = new pokemons("Pikachu", 13, "Eléctrico", "Electricidad Estática", "6,0");
+const pokemons2 = new pokemons("voltorb",200, "Eléctrico", "Electricidad Estática / Insonorizar", "si");
+// "3 pokemons's para los de Palermo, 7 para los wachiturros, nueve para los del bajo flores, uno para Alberto"
+const pokemons3 = new pokemons("Muchahontas", 20, "lorem ipsum", "Nativo americano / inglés", "si");
+const pokemons4 = new pokemons("Estrella guerras", 666, "lorem ipsum", "muchos", "no");
+const pokemons5 = new pokemons("Matrixulado", 01, "lorem ipsum", "011010010010", "depende");
+const pokemons6 = new pokemons("Your ass is park", 1, "lorem ipsum", "*Sonidos de dinosaurios*", "A A AAAAA no dijiste la palabra mágica");
+const pokemons7 = new pokemons();
+
+
+const bichos = [pokemons1,pokemons2,pokemons3,pokemons4,pokemons5,pokemons6];
+
+let cantpelis = bichos.length;
+
+let titulo = "pokemons" + (cantpelis + 1);
 
 function listapelis(){
     let lista = []
     for(i=0;i<cantpelis;i++){
-        lista.push(peliculas[i].nombre);
+        lista.push(bichos[i].nombre);
     }
     alert("Actualmente tenemos éstas películas en stock:\n" + lista.join("\n"));
 }
@@ -37,18 +51,18 @@ function listapelis(){
 
 function infopelis(){
     $(document).ready(() => {
-        $("#iconopelis").slideUp(2000)
+        $("#pokeicono").slideUp(2000)
         .slideDown(2000);
     })
     const lista = [];
     for(i=0;i<cantpelis;i++){
-        lista.push("("+(i+1)+") " + peliculas[i].nombre);
+        lista.push("("+(i+1)+") " + bichos[i].nombre);
     }
     let info = prompt("Sobre quepelícula le gustaría saber más?\n"+ lista.join("\n"));
     if(info<1 || info>cantpelis || isNaN(info)){
         alert("ERROR! Indique correctamente el número de la pelícual sobre la cual desea saber");
     }else{
-    alert("Nombre: " + peliculas[info-1].nombre + "\n" + "Cantidad en Stock: " + peliculas[info-1].stock + "\n" + "Sinopsis: " + peliculas[info-1].sinopsis + "\n" + "Idioma: " + peliculas[info-1].idioma + "\n" + "Subtítulos: " + peliculas[info-1].subtitulos)
+    alert("Nombre: " + bichos[info-1].nombre + "\n" + "Cantidad en Stock: " + bichos[info-1].stock + "\n" + "Tipo: " + bichos[info-1].tipo + "\n" + "Ataque Especial: " + bichos[info-1].ataqueespecial + "\n" + "Peso: " + bichos[info-1].peso)
 }}
 
 
@@ -56,7 +70,7 @@ function infopelis(){
 
 function nombrepagina(){
     $(document).ready(() => {
-        $("#iconopelis").slideUp(2000)
+        $("#pokeicono").slideUp(2000)
         .slideDown(2000);
         alert("Entiendo que el nombre de la página pueda ser medio repetitivo o muy básico, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
         $("#nombrepagina").fadeOut(600)
@@ -82,16 +96,17 @@ function nombrepagina(){
 
 let total= 0;
 for(i=0;i<cantpelis;i++){
-total += peliculas[i].stock}
+total += bichos[i].stock}
 
 
 const pokeurl = `https://pokeapi.co/api/v2/pokemon/`;
 
 
+
 $(document).ready(() => {
     $("#cambiarnombrepagina").on('click',nombrepagina);
     $("#totalbtn").on('click',()=> {
-        $("#iconopelis").slideUp(2000)
+        $("#pokeicono").slideUp(2000)
         .delay(2000)
         .slideDown(2000);
         $("#totalbtn").hide()
@@ -105,8 +120,10 @@ $(document).ready(() => {
         $("#totalstock--").text(`El total de películas es de: ${total}`).fadeIn(1400)
         .delay(4000)
         .fadeOut();
-
     });
+    $("#pokeicono").click(()=>{
+        pokesongintro.play();
+    })
     $("#infobtn").click(infopelis);
     $("#stockbtn").click(listapelis);
 
@@ -136,3 +153,6 @@ $(document).ready(() => {
     })
  })
  
+ window.addEventListener('load', function() {
+    
+});
