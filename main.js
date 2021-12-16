@@ -22,15 +22,14 @@ const cargarSonido = function (fuente) {
 
 const pokesongintro = cargarSonido("./recursos/pokesong intro.webm"); //<-- Acá va la canción del intro
 
+// Ésto se va a conectar con una base de datos para que muestre lo que hay en stock --> 
 
-const pokemons1 = new pokemons("Pikachu", 13, "Eléctrico", "Electricidad Estática", "6,0");
-const pokemons2 = new pokemons("voltorb",200, "Eléctrico", "Electricidad Estática / Insonorizar", "si");
-// "3 pokemons's para los de Palermo, 7 para los wachiturros, nueve para los del bajo flores, uno para Alberto"
-const pokemons3 = new pokemons("Muchahontas", 20, "lorem ipsum", "Nativo americano / inglés", "si");
-const pokemons4 = new pokemons("Estrella guerras", 666, "lorem ipsum", "muchos", "no");
-const pokemons5 = new pokemons("Matrixulado", 01, "lorem ipsum", "011010010010", "depende");
-const pokemons6 = new pokemons("Your ass is park", 1, "lorem ipsum", "*Sonidos de dinosaurios*", "A A AAAAA no dijiste la palabra mágica");
-const pokemons7 = new pokemons();
+const pokemons1 = new pokemons("Pikachu", 13, "Eléctrico", "Electricidad Estática", "6,0 Kg");
+const pokemons2 = new pokemons("Voltorb",200, "Eléctrico", "Electricidad Estática / Insonorizar", "10,4 Kg");
+const pokemons3 = new pokemons("Charmeleon", 20, "Fuego", "Mar Llamas", "19,0 Kg");
+const pokemons4 = new pokemons("Blastoise", 6, "Agua", "Torrente", "85.5 Kg");
+const pokemons5 = new pokemons("Ekans", 5, "Veneno", "Mudar / Intimidación", "6,9 Kg");
+const pokemons6 = new pokemons("Nidoqueen", 10, "Veneno / Tierra", "Punto Tóxico / Rivalidad", "60,0 Kg");
 
 
 const bichos = [pokemons1,pokemons2,pokemons3,pokemons4,pokemons5,pokemons6];
@@ -44,7 +43,7 @@ function listapelis(){
     for(i=0;i<cantpelis;i++){
         lista.push(bichos[i].nombre);
     }
-    alert("Actualmente tenemos éstas películas en stock:\n" + lista.join("\n"));
+    alert("Actualmente tenemos éstos pokémons en stock:\n" + lista.join("\n"));
 }
 
 
@@ -60,7 +59,7 @@ function infopelis(){
     }
     let info = prompt("Sobre quepelícula le gustaría saber más?\n"+ lista.join("\n"));
     if(info<1 || info>cantpelis || isNaN(info)){
-        alert("ERROR! Indique correctamente el número de la pelícual sobre la cual desea saber");
+        alert("ERROR! Indique correctamente el número de la pokemon en stock sobre la cual desea saber");
     }else{
     alert("Nombre: " + bichos[info-1].nombre + "\n" + "Cantidad en Stock: " + bichos[info-1].stock + "\n" + "Tipo: " + bichos[info-1].tipo + "\n" + "Ataque Especial: " + bichos[info-1].ataqueespecial + "\n" + "Peso: " + bichos[info-1].peso)
 }}
@@ -117,7 +116,7 @@ $(document).ready(() => {
         .fadeIn(1500);
         $("#totalstock-padre").append(`<h2 id="totalstock--"></h2>`);
         $("#totalstock--").hide();
-        $("#totalstock--").text(`El total de películas es de: ${total}`).fadeIn(1400)
+        $("#totalstock--").text(`El total de Pokémons es de: ${total}`).fadeIn(1400)
         .delay(4000)
         .fadeOut();
     });
