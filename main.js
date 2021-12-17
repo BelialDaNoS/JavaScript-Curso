@@ -34,31 +34,41 @@ const pokemons6 = new pokemons("Nidoqueen", 10, "Veneno / Tierra", "Punto Tóxic
 
 const bichos = [pokemons1,pokemons2,pokemons3,pokemons4,pokemons5,pokemons6];
 
-let cantpelis = bichos.length;
+let cantpokess = bichos.length;
 
-let titulo = "pokemons" + (cantpelis + 1);
 
-function listapelis(){
-    let lista = []
-    for(i=0;i<cantpelis;i++){
-        lista.push(bichos[i].nombre);
+function listapokess(){
+
+    $("#tarjetita").hide();
+    setTimeout(() => {
+        $("#pokeload").fadeOut(1000);
+    }, 2000);
+
+    setTimeout(() => {
+        $("#tarjetita").fadeIn(1000);
+    }, 3000);
+
+    for(i=0;i<cantpokess;i++){
+         $("#modal-cards-inner").append(`
+            <h2 id="pockenstock"> ${(bichos[i].nombre)} </h2>
+            `)
     }
-    alert("Actualmente tenemos éstos pokémons en stock:\n" + lista.join("\n"));
 }
 
 
 
-function infopelis(){
+
+function infopokess(){
     $(document).ready(() => {
         $("#pokeicono").slideUp(2000)
         .slideDown(2000);
     })
     const lista = [];
-    for(i=0;i<cantpelis;i++){
+    for(i=0;i<cantpokess;i++){
         lista.push("("+(i+1)+") " + bichos[i].nombre);
     }
     let info = prompt("Sobre quepelícula le gustaría saber más?\n"+ lista.join("\n"));
-    if(info<1 || info>cantpelis || isNaN(info)){
+    if(info<1 || info>cantpokess || isNaN(info)){
         alert("ERROR! Indique correctamente el número de la pokemon en stock sobre la cual desea saber");
     }else{
     alert("Nombre: " + bichos[info-1].nombre + "\n" + "Cantidad en Stock: " + bichos[info-1].stock + "\n" + "Tipo: " + bichos[info-1].tipo + "\n" + "Ataque Especial: " + bichos[info-1].ataqueespecial + "\n" + "Peso: " + bichos[info-1].peso)
@@ -66,35 +76,8 @@ function infopelis(){
 
 
 
-
-function nombrepagina(){
-    $(document).ready(() => {
-        $("#pokeicono").slideUp(2000)
-        .slideDown(2000);
-        alert("Entiendo que el nombre de la página pueda ser medio repetitivo o muy básico, pero ésto se da porque quien creó la página se quedó sin ideas y no tuvo una mejor que usar algo conocido y transformarlo al digital.");
-        $("#nombrepagina").fadeOut(600)
-        let nuevonombre = prompt("Así que te crees muy inteligente eh? Crees que podes poner un mejor nombre que el que le puse yo? \n\nA ver, que nombre se te ocurre??");
-        if (nuevonombre == ""){
-            alert("Bueno, tampoco es que mi nombre sea tan malo :c \n Te dejo el que mio");
-            $("#nombrepagina").fadeIn(800)
-            $("#nombrepagina").text("BloqueBuster");
-            return;
-        }else{
-            $("#nombrepagina").fadeIn(800)
-            $("#nombrepagina").text(nuevonombre).toString();
-            setTimeout(function(){alert("Me gustaba más mi nombre... pero al parecer '" + nuevonombre.toUpperCase() + "' no queda tan mal.")}, 2000);
-            
-        }
-        
-    })
-}
-
-
-
-
-
 let total= 0;
-for(i=0;i<cantpelis;i++){
+for(i=0;i<cantpokess;i++){
 total += bichos[i].stock}
 
 
@@ -103,18 +86,21 @@ const pokeurl = `https://pokeapi.co/api/v2/pokemon/`;
 
 
 $(document).ready(() => {
-    $("#cambiarnombrepagina").on('click',nombrepagina);
     $("#totalbtn").on('click',()=> {
         $("#pokeicono").slideUp(2000)
         .delay(2000)
         .slideDown(2000);
+
         $("#totalbtn").hide()
         .delay(5500)
         .fadeIn(1500);
+
         $("#totalstock").fadeOut(200)
         .delay(5500)
         .fadeIn(1500);
+
         $("#totalstock-padre").append(`<h2 id="totalstock--"></h2>`);
+
         $("#totalstock--").hide();
         $("#totalstock--").text(`El total de Pokémons es de: ${total}`).fadeIn(1400)
         .delay(4000)
@@ -123,8 +109,9 @@ $(document).ready(() => {
     $("#pokeicono").click(()=>{
         pokesongintro.play();
     })
-    $("#infobtn").click(infopelis);
-    $("#stockbtn").click(listapelis);
+    $("#infobtn").click(infopokess);
+
+    $("#stockbtn").click(listapokess);
 
 
 
@@ -154,4 +141,51 @@ $(document).ready(() => {
  
  window.addEventListener('load', function() {
     
+});
+
+
+
+
+
+const openEls = document.querySelectorAll("[data-open]");
+const closeEls = document.querySelectorAll("[data-close]");
+const isVisible = "is-visible";
+
+for (const el of openEls) {
+  el.addEventListener("click", function() {
+    const modalId = this.dataset.open;
+    document.getElementById(modalId).classList.add(isVisible);
+  });
+}
+
+for (const el of closeEls) {
+  el.addEventListener("click", function() {
+    this.parentElement.parentElement.parentElement.classList.remove(isVisible);
+    $("#pokeload").fadeIn(2000);  
+    for(i=0;i<cantpokess;i++){
+        $("#pockenstock").remove();
+      };
+  });
+
+}
+
+document.addEventListener("click", e => {
+  if (e.target == document.querySelector(".modal.is-visible")) {
+    document.querySelector(".modal.is-visible").classList.remove(isVisible);
+    $("#pokeload").fadeIn(2000);  
+    for(i=0;i<cantpokess;i++){
+        $("#pockenstock").remove();
+      };
+  }
+
+});
+
+document.addEventListener("keyup", e => {
+  if (e.key == "Escape" && document.querySelector(".modal.is-visible")) {
+    document.querySelector(".modal.is-visible").classList.remove(isVisible);
+    $("#pokeload").fadeIn(2000);  
+    for(i=0;i<cantpokess;i++){
+      $("#pockenstock").remove();
+    };
+  }
 });

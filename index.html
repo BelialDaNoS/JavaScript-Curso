@@ -28,13 +28,10 @@
   <header>
     <div class="d-flex flex-column align-items-center pb-3 mb-1 border-bottom">
       <img src="./recursos/pokegif.gif" alt="" id="pokeicono">
-      <h1 class="fs-1 ms-3 pokepag text-center" id="nombrepagina">Pokéstock</h1>
+      <h1 class="fs-1 ms-3 pokepag text-center">Pokéstock</h1>
     </div>
-    <button type="button" class="btn btn-outline-danger" id="cambiarnombrepagina">Cambiar Nombre de la página</button>
-
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
       <h2 class="display-4 fw-normal">Pokémon</h2>
-      <p class="fs-5 text-muted">Por ahora solamente vas a poder ver que hay en stock, ver los detalles y si te portas bien te dejo ver la suma total.</p>
     </div>
   </header>
 
@@ -49,7 +46,37 @@
           <div class="card-body" style="height: 150px;">
             <h1 class="card-title ">Ver Stock Actual</h1>
           </div>
-          <button type="button" class="w-100 btn btn-lg btn-outline-primary" id="stockbtn">Apretá acá</button>
+          <button type="button" class="open-modal w-100 btn btn-lg btn-primary" data-open="modal1" id="stockbtn">Apretá Acá</button>
+          <div class="modal" id="modal1">
+            <div class="modal-dialog">
+              <header class="modal-header">
+                <h2 id="modal-title">Pokémons En Stock:</h2>
+                <button class="close-modal" aria-label="close modal" data-close>✕</button>
+              </header>
+              <section class="modal-content">
+
+
+
+                <div class="row" id="tarjetita">
+                  <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                      <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Stock</h4>
+                      </div>
+                      <div class="card-body" style="height: auto;" id="modal-cards-inner">
+                      </div>
+                    </div>
+                  </div>
+                  
+
+
+                </div>
+
+                  <img src="./recursos/pokeload.gif" id="pokeload" alt="" style="height: 50px; width: 50px; margin-left: auto; margin-right: auto;">
+
+              </section>
+            </div>
+          </div>
         </div>
       </div>
 
