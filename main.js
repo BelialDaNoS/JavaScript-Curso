@@ -102,7 +102,7 @@ $(document).ready(() => {
         $("#totalstock-padre").append(`<h2 id="totalstock--"></h2>`);
 
         $("#totalstock--").hide();
-        $("#totalstock--").text(`El total de Pokémons es de: ${total}`).fadeIn(1400)
+        $("#totalstock--").text(`El total de Pokémons en stock es de: ${total}`).fadeIn(1400)
         .delay(4000)
         .fadeOut();
     });
@@ -133,7 +133,7 @@ $(document).ready(() => {
                 img.setAttribute("src",datoPokemon.sprites.front_default);
                 name.textContent=datoPokemon.name;
                 id.textContent=datoPokemon.id;
-                peso.textContent=datoPokemon.weight+" gramitos";
+                peso.textContent=datoPokemon.weight+" decagramitos";
                 }
             }
     })
