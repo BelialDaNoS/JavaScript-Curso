@@ -20,10 +20,10 @@ const cargarSonido = function (fuente) {
 };
 
 
-const pokesongintro = cargarSonido("./recursos/pokesong intro.webm"); //<-- Acá va la canción del intro
+const pokesongintro = cargarSonido("Styles/recursos/pokesong intro.webm"); //<-- Acá va la canción del intro
+
 
 // Ésto se va a conectar con una base de datos para que muestre lo que hay en stock --> 
-
 const pokemons1 = new pokemons("Pikachu", 13, "Eléctrico", "Electricidad Estática", "6,0 Kg");
 const pokemons2 = new pokemons("Voltorb",200, "Eléctrico", "Electricidad Estática / Insonorizar", "10,4 Kg");
 const pokemons3 = new pokemons("Charmeleon", 20, "Fuego", "Mar Llamas", "19,0 Kg");
@@ -35,6 +35,11 @@ const pokemons6 = new pokemons("Nidoqueen", 10, "Veneno / Tierra", "Punto Tóxic
 const bichos = [pokemons1,pokemons2,pokemons3,pokemons4,pokemons5,pokemons6];
 
 let cantpokess = bichos.length;
+
+
+let total= 0;
+for(i=0;i<cantpokess;i++){
+total += bichos[i].stock}
 
 
 function listapokess(){
@@ -50,11 +55,12 @@ function listapokess(){
 
     for(i=0;i<cantpokess;i++){
          $("#modal-cards-inner").append(`
-            <h2 id="pockenstock"> ${(bichos[i].nombre)} </h2>
+          <div id="pockenstock">
+            <h2 id="${bichos[i].nombre}info"> ${(bichos[i].nombre)}</h2>
+            </div>
             `)
     }
 }
-
 
 
 
@@ -67,18 +73,8 @@ function infopokess(){
     for(i=0;i<cantpokess;i++){
         lista.push("("+(i+1)+") " + bichos[i].nombre);
     }
-    let info = prompt("Sobre quepelícula le gustaría saber más?\n"+ lista.join("\n"));
-    if(info<1 || info>cantpokess || isNaN(info)){
-        alert("ERROR! Indique correctamente el número de la pokemon en stock sobre la cual desea saber");
-    }else{
-    alert("Nombre: " + bichos[info-1].nombre + "\n" + "Cantidad en Stock: " + bichos[info-1].stock + "\n" + "Tipo: " + bichos[info-1].tipo + "\n" + "Ataque Especial: " + bichos[info-1].ataqueespecial + "\n" + "Peso: " + bichos[info-1].peso)
-}}
+}
 
-
-
-let total= 0;
-for(i=0;i<cantpokess;i++){
-total += bichos[i].stock}
 
 
 const pokeurl = `https://pokeapi.co/api/v2/pokemon/`;
